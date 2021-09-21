@@ -56,6 +56,42 @@
             "style": {
                 "navigationBarTitleText": "商品分类列表"
             }
+        },
+        {
+            "path": "pages/uni-id-base-order/add",
+            "style": {
+                "navigationBarTitleText": "新增"
+            }
+        },
+        {
+            "path": "pages/uni-id-base-order/edit",
+            "style": {
+                "navigationBarTitleText": "编辑"
+            }
+        },
+        {
+            "path": "pages/uni-id-base-order/list",
+            "style": {
+                "navigationBarTitleText": "列表"
+            }
+        },
+        {
+            "path": "pages/uni-id-category-order/add",
+            "style": {
+                "navigationBarTitleText": "新增"
+            }
+        },
+        {
+            "path": "pages/uni-id-category-order/edit",
+            "style": {
+                "navigationBarTitleText": "编辑"
+            }
+        },
+        {
+            "path": "pages/uni-id-category-order/list",
+            "style": {
+                "navigationBarTitleText": "列表"
+            }
         }
     ],
     "subPackages": [{
