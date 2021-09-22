@@ -92,6 +92,12 @@
             "style": {
                 "navigationBarTitleText": "列表"
             }
+        },
+        {
+            "path": "pages/uni-id-category-order/detail",
+            "style": {
+                "navigationBarTitleText": "详情"
+            }
         }
     ],
     "subPackages": [{

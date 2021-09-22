@@ -2,7 +2,15 @@
 <template>
   <view class="uni-container">
     <uni-forms ref="form" :value="formData" validateTrigger="bind">
-      
+      <uni-forms-item name="name" label="类别名称" required>
+  <uni-easyinput placeholder="类别名称,如小程序订单，拼团订单，预售订单、门店订单等" v-model="formData.name" trim="both" />
+</uni-forms-item>
+<uni-forms-item name="description" label="类别描述">
+  <uni-easyinput placeholder="类别描述" v-model="formData.description" trim="both" />
+</uni-forms-item>
+<uni-forms-item name="create_date" label="创建时间">
+  <uni-datetime-picker return-type="timestamp" :value="formData.create_date" />
+</uni-forms-item>
 
       <view class="uni-button-group">
         <button type="primary" class="uni-button" style="width: 100px;" @click="submit">提交</button>
@@ -34,10 +42,14 @@
   export default {
     data() {
       return {
-        formData: {},
+        formData: {
+  "name": "",
+  "description": "",
+  "create_date": null
+},
         formOptions: {},
         rules: {
-          ...getValidator([])
+          ...getValidator(["name","description","create_date"])
         }
       }
     },
@@ -90,7 +102,7 @@
         uni.showLoading({
           mask: true
         })
-        db.collection(dbCollectionName).doc(id).get().then((res) => {
+        db.collection(dbCollectionName).doc(id).field('name,description,create_date').get().then((res) => {
           const data = res.result.data[0]
           if (data) {
             this.formData = data
