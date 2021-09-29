@@ -98,6 +98,24 @@
             "style": {
                 "navigationBarTitleText": "详情"
             }
+        },
+        {
+            "path": "pages/uni-id-scores/add",
+            "style": {
+                "navigationBarTitleText": "新增"
+            }
+        },
+        {
+            "path": "pages/uni-id-scores/edit",
+            "style": {
+                "navigationBarTitleText": "编辑"
+            }
+        },
+        {
+            "path": "pages/uni-id-scores/list",
+            "style": {
+                "navigationBarTitleText": "列表"
+            }
         }
     ],
     "subPackages": [{
