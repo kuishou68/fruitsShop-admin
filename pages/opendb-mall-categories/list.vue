@@ -14,16 +14,16 @@
       </view>
     </view>
     <view class="uni-container">
-      <unicloud-db ref="udb" collection="opendb-mall-categories" field="parent_id,name,icon,sort,description,is_hot_show,is_index_show,create_date" :where="where" page-data="replace"
+      <unicloud-db ref="udb" collection="opendb-mall-categories" field="name,sort,description,icon,is_hot_show,is_index_show,create_date" :where="where" page-data="replace"
         :orderby="orderby" :getcount="true" :page-size="options.pageSize" :page-current="options.pageCurrent"
         v-slot:default="{data,pagination,loading,error,options}" :options="options">
         <uni-table :loading="loading" :emptyText="error.message || '没有更多数据'" border stripe type="selection" @selection-change="selectionChange">
           <uni-tr>
-              <uni-th align="center">parent_id</uni-th>  <uni-th align="center">类别名称</uni-th>  <uni-th align="center">图标地址</uni-th>  <uni-th align="center">排序</uni-th>  <uni-th align="center">类别描述</uni-th>  <uni-th align="center">加入热门显示</uni-th>  <uni-th align="center">首页显示</uni-th>  <uni-th align="center">create_date</uni-th>  
+              <uni-th align="center">类别名称</uni-th>  <uni-th align="center">排序</uni-th>  <uni-th align="center">类别描述</uni-th>  <uni-th align="center">图标地址</uni-th>  <uni-th align="center">加入热门显示</uni-th>  <uni-th align="center">首页显示</uni-th>  <uni-th align="center">创建时间</uni-th>  
             <uni-th width="204" align="center">操作</uni-th>
           </uni-tr>
           <uni-tr v-for="(item,index) in data" :key="index">
-               <uni-td align="center"> {{item.parent_id}} </uni-td>    <uni-td align="center"> {{item.name}} </uni-td>    <uni-td align="center"> {{item.icon}} </uni-td>    <uni-td align="center"> {{item.sort}} </uni-td>    <uni-td align="center"> {{item.description}} </uni-td>    <uni-td align="center"> {{item.is_hot_show == true ? '✅' : '❌'}} </uni-td>    <uni-td align="center"> {{item.is_index_show == true ? '✅' : '❌'}} </uni-td>    <uni-td align="center">     <uni-dateformat :date="item.create_date" :threshold="[0, 0]" /> </uni-td>   
+               <uni-td align="center"> {{item.name}} </uni-td>    <uni-td align="center"> {{item.sort}} </uni-td>    <uni-td align="center"> {{item.description}} </uni-td>    <uni-td align="center"> {{item.icon}} </uni-td>    <uni-td align="center"> {{item.is_hot_show == true ? '✅' : '❌'}} </uni-td>    <uni-td align="center"> {{item.is_index_show == true ? '✅' : '❌'}} </uni-td>    <uni-td align="center">     <uni-dateformat :date="item.create_date" :threshold="[0, 0]" /> </uni-td>   
             <uni-td align="center">
               <view class="uni-group">
                 <button @click="navigateTo('./edit?id='+item._id, false)" class="uni-button" size="mini" type="primary">修改</button>

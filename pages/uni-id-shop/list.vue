@@ -14,16 +14,16 @@
       </view>
     </view>
     <view class="uni-container">
-      <unicloud-db ref="udb" collection="uni-id-address,opendb-city-china" field="user_id,name,alias,mobile,area_code{name},address,zip_code,email,is_default" :where="where" page-data="replace"
+      <unicloud-db ref="udb" collection="uni-id-shop" field="shop_id,name,type,address,city,geohash,latitude,longitude" :where="where" page-data="replace"
         :orderby="orderby" :getcount="true" :page-size="options.pageSize" :page-current="options.pageCurrent"
         v-slot:default="{data,pagination,loading,error,options}" :options="options">
         <uni-table :loading="loading" :emptyText="error.message || '没有更多数据'" border stripe type="selection" @selection-change="selectionChange">
           <uni-tr>
-              <uni-th align="center">会员ID</uni-th>  <uni-th align="center">收货人</uni-th>  <uni-th align="center">地址别名</uni-th>  <uni-th align="center">手机号</uni-th>  <uni-th align="center">省市区</uni-th>  <uni-th align="center">详细住址</uni-th>  <uni-th align="center">邮编</uni-th>  <uni-th align="center">邮箱</uni-th>  <uni-th align="center">默认地址</uni-th>  
+              <uni-th align="center">门店ID</uni-th>  <uni-th align="center">门店名称</uni-th>  <uni-th align="center">门店类型</uni-th>  <uni-th align="center">门店位置</uni-th>  <uni-th align="center">所在城市</uni-th>  <uni-th align="center">经纬度</uni-th>  <uni-th align="center">纬度</uni-th>  <uni-th align="center">经度</uni-th>  
             <uni-th width="204" align="center">操作</uni-th>
           </uni-tr>
           <uni-tr v-for="(item,index) in data" :key="index">
-               <uni-td align="center"> {{item.user_id}} </uni-td>    <uni-td align="center"> {{item.name}} </uni-td>    <uni-td align="center"> {{item.alias}} </uni-td>    <uni-td align="center"> {{item.mobile}} </uni-td>    <uni-td align="center"> {{item.area_code[0] && item.area_code[0].name}} </uni-td>    <uni-td align="center"> {{item.address}} </uni-td>    <uni-td align="center"> {{item.zip_code}} </uni-td>    <uni-td align="center"> <uni-link :href="'mailto:'+item.email" :text="item.email"></uni-link> </uni-td>    <uni-td align="center"> {{item.is_default == true ? '✅' : '❌'}} </uni-td>   
+               <uni-td align="center"> {{item.shop_id}} </uni-td>    <uni-td align="center"> {{item.name}} </uni-td>    <uni-td align="center"> {{item.type}} </uni-td>    <uni-td align="center"> {{item.address}} </uni-td>    <uni-td align="center"> {{item.city}} </uni-td>    <uni-td align="center"> {{item.geohash}} </uni-td>    <uni-td align="center"> {{item.latitude}} </uni-td>    <uni-td align="center"> {{item.longitude}} </uni-td>   
             <uni-td align="center">
               <view class="uni-group">
                 <button @click="navigateTo('./edit?id='+item._id, false)" class="uni-button" size="mini" type="primary">修改</button>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-  import { enumConverter } from '../../js_sdk/validator/uni-id-address.js';
+  import { enumConverter } from '../../js_sdk/validator/uni-id-shop.js';
 
   const db = uniCloud.database()
   // 表查询配置

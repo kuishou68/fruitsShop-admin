@@ -9,7 +9,8 @@ const validator = {
       {
         "format": "string"
       }
-    ]
+    ],
+    "label": "会员ID"
   },
   "name": {
     "rules": [
@@ -44,30 +45,6 @@ const validator = {
     ],
     "label": "手机号"
   },
-  "mobile_area_code": {
-    "rules": [
-      {
-        "format": "string"
-      }
-    ],
-    "label": "国际区号"
-  },
-  "province_code": {
-    "rules": [
-      {
-        "format": "string"
-      }
-    ],
-    "label": "省"
-  },
-  "city_code": {
-    "rules": [
-      {
-        "format": "string"
-      }
-    ],
-    "label": "市"
-  },
   "area_code": {
     "rules": [
       {
@@ -89,13 +66,6 @@ const validator = {
       }
     ],
     "label": "详细住址"
-  },
-  "formatted_address": {
-    "rules": [
-      {
-        "format": "string"
-      }
-    ]
   },
   "zip_code": {
     "rules": [

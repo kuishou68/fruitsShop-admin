@@ -4,13 +4,29 @@
 
 
 const validator = {
-  "title": {
+  "order_id": {
     "rules": [
       {
         "format": "string"
       }
     ],
-    "label": "商品标题"
+    "label": "订单ID"
+  },
+  "order_number": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "订单号"
+  },
+  "mobile": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "下单会员手机号"
   },
   "type": {
     "rules": [
@@ -36,17 +52,10 @@ const validator = {
     ],
     "label": "订单总金额"
   },
-  "user_id": {
-    "rules": [
-      {
-        "format": "String"
-      }
-    ]
-  },
   "platform": {
     "rules": [
       {
-        "format": "String"
+        "format": "string"
       }
     ],
     "label": "下单平台类型"
@@ -63,12 +72,45 @@ const validator = {
     ],
     "label": "订单状态"
   },
+  "create_time": {
+    "rules": [
+      {
+        "format": "timestamp"
+      }
+    ],
+    "label": "订单创建时间"
+  },
+  "update_time": {
+    "rules": [
+      {
+        "format": "timestamp"
+      }
+    ],
+    "label": "订单更新时间"
+  },
+  "transaction_id": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "微信或支付宝交易单号"
+  },
+  "info": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "自定义的订单拓展信息"
+  },
   "is_refund": {
     "rules": [
       {
         "format": "bool"
       }
-    ]
+    ],
+    "label": "是否是退款订单"
   },
   "refund_amount": {
     "rules": [
@@ -85,22 +127,6 @@ const validator = {
       }
     ],
     "label": "总退款笔数"
-  },
-  "create_time": {
-    "rules": [
-      {
-        "format": "timestamp"
-      }
-    ],
-    "label": "订单创建时间"
-  },
-  "update_time": {
-    "rules": [
-      {
-        "format": "timestamp"
-      }
-    ],
-    "label": "订单更新时间"
   },
   "paid_time": {
     "rules": [
@@ -121,26 +147,10 @@ const validator = {
   "refund_desc": {
     "rules": [
       {
-        "format": "String"
-      }
-    ],
-    "label": "退款原因"
-  },
-  "transaction_id": {
-    "rules": [
-      {
-        "format": "String"
-      }
-    ],
-    "label": "微信或支付宝交易单号"
-  },
-  "info": {
-    "rules": [
-      {
         "format": "string"
       }
     ],
-    "label": "自定义的订单拓展信息"
+    "label": "退款原因"
   }
 }
 

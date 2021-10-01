@@ -2,14 +2,8 @@
 <template>
   <view class="uni-container">
     <uni-forms ref="form" :value="formData" validateTrigger="bind">
-      <uni-forms-item name="parent_id" label="">
-  <uni-easyinput placeholder="父ID，用于多级分类" v-model="formData.parent_id" />
-</uni-forms-item>
-<uni-forms-item name="name" label="类别名称" required>
+      <uni-forms-item name="name" label="类别名称" required>
   <uni-easyinput placeholder="类别名称" v-model="formData.name" trim="both" />
-</uni-forms-item>
-<uni-forms-item name="icon" label="图标地址">
-  <uni-easyinput placeholder="类别图标/图片地址" v-model="formData.icon" trim="both" />
 </uni-forms-item>
 <uni-forms-item name="sort" label="排序">
   <uni-easyinput placeholder="类别排序，越大越靠后" type="number" v-model="formData.sort" />
@@ -17,13 +11,16 @@
 <uni-forms-item name="description" label="类别描述">
   <uni-easyinput placeholder="类别描述" v-model="formData.description" trim="both" />
 </uni-forms-item>
+<uni-forms-item name="icon" label="图标地址">
+  <uni-easyinput placeholder="类别图标/图片地址" v-model="formData.icon" trim="both" />
+</uni-forms-item>
 <uni-forms-item name="is_hot_show" label="加入热门显示">
   <switch @change="binddata('is_hot_show', $event.detail.value)" :checked="formData.is_hot_show" />
 </uni-forms-item>
 <uni-forms-item name="is_index_show" label="首页显示">
   <switch @change="binddata('is_index_show', $event.detail.value)" :checked="formData.is_index_show" />
 </uni-forms-item>
-<uni-forms-item name="create_date" label="">
+<uni-forms-item name="create_date" label="创建时间">
   <uni-datetime-picker return-type="timestamp" :value="formData.create_date" />
 </uni-forms-item>
 
@@ -58,18 +55,17 @@
     data() {
       return {
         formData: {
-  "parent_id": "",
   "name": "",
-  "icon": "",
   "sort": null,
   "description": "",
+  "icon": "",
   "is_hot_show": null,
   "is_index_show": null,
   "create_date": null
 },
         formOptions: {},
         rules: {
-          ...getValidator(["parent_id","name","icon","sort","description","is_hot_show","is_index_show","create_date"])
+          ...getValidator(["name","sort","description","icon","is_hot_show","is_index_show","create_date"])
         }
       }
     },
@@ -122,7 +118,7 @@
         uni.showLoading({
           mask: true
         })
-        db.collection(dbCollectionName).doc(id).field('parent_id,name,icon,sort,description,is_hot_show,is_index_show,create_date').get().then((res) => {
+        db.collection(dbCollectionName).doc(id).field('name,sort,description,icon,is_hot_show,is_index_show,create_date').get().then((res) => {
           const data = res.result.data[0]
           if (data) {
             this.formData = data

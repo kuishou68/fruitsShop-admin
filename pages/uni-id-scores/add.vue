@@ -2,20 +2,20 @@
 <template>
   <view class="uni-container">
     <uni-forms ref="form" :value="formData" validateTrigger="bind">
-      <uni-forms-item name="user_id" label="" required>
-  <uni-easyinput placeholder="用户id，参考uni-id-users表" v-model="formData.user_id" />
+      <uni-forms-item name="member_id" label="会员ID" required>
+  <uni-easyinput placeholder="会员id，参考会员信息表" v-model="formData.member_id" />
 </uni-forms-item>
-<uni-forms-item name="score" label="" required>
-  <uni-easyinput placeholder="本次变化的积分" type="number" v-model="formData.score" />
+<uni-forms-item name="nickname" label="昵称">
+  <uni-easyinput placeholder="会员昵称" v-model="formData.nickname" trim="both" />
 </uni-forms-item>
-<uni-forms-item name="type" label="">
-  <uni-data-checkbox v-model="formData.type" :localdata="formOptions.type_localdata" />
+<uni-forms-item name="mobile" label="手机号码" required>
+  <uni-easyinput placeholder="手机号码" v-model="formData.mobile" trim="both" />
 </uni-forms-item>
-<uni-forms-item name="balance" label="" required>
-  <uni-easyinput placeholder="变化后的积分余额" type="number" v-model="formData.balance" />
+<uni-forms-item name="score" label="积分余额" required>
+  <uni-easyinput placeholder="积分余额" type="number" v-model="formData.score" />
 </uni-forms-item>
-<uni-forms-item name="comment" label="">
-  <uni-easyinput placeholder="备注，说明积分新增、消费的缘由" v-model="formData.comment" trim="both" />
+<uni-forms-item name="comment" label="备注" required>
+  <uni-easyinput placeholder="手动修改积分需说明积分变动的缘由" v-model="formData.comment" trim="both" />
 </uni-forms-item>
 
       <view class="uni-button-group">
@@ -49,20 +49,15 @@
     data() {
       return {
         formData: {
-  "user_id": "",
+  "member_id": "",
+  "nickname": "",
+  "mobile": "",
   "score": null,
-  "type": null,
-  "balance": null,
   "comment": ""
 },
-        formOptions: {
-  "type_localdata": [
-    1,
-    2
-  ]
-},
+        formOptions: {},
         rules: {
-          ...getValidator(["user_id","score","type","balance","comment"])
+          ...getValidator(["member_id","nickname","mobile","score","comment"])
         }
       }
     },

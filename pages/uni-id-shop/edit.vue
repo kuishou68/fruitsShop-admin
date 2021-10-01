@@ -2,20 +2,20 @@
 <template>
   <view class="uni-container">
     <uni-forms ref="form" :value="formData" validateTrigger="bind">
-      <uni-forms-item name="member_id" label="会员ID" required>
-  <uni-easyinput placeholder="会员id，参考会员信息表" v-model="formData.member_id" />
+      <uni-forms-item name="shop_id" label="门店ID">
+  <uni-easyinput placeholder="门店id，参考uni-id-shop表" v-model="formData.shop_id" />
 </uni-forms-item>
-<uni-forms-item name="nickname" label="昵称">
-  <uni-easyinput placeholder="会员昵称" v-model="formData.nickname" trim="both" />
+<uni-forms-item name="name" label="门店名称">
+  <uni-easyinput placeholder="门店名称" v-model="formData.name" />
 </uni-forms-item>
-<uni-forms-item name="mobile" label="手机号码" required>
-  <uni-easyinput placeholder="手机号码" v-model="formData.mobile" trim="both" />
+<uni-forms-item name="type" label="门店类型">
+  <uni-easyinput placeholder="门店类型 1:自营 2:加盟" v-model="formData.type" trim="both" />
 </uni-forms-item>
-<uni-forms-item name="score" label="积分余额" required>
-  <uni-easyinput placeholder="积分余额" type="number" v-model="formData.score" />
+<uni-forms-item name="address" label="门店位置">
+  <uni-easyinput placeholder="门店位置" v-model="formData.address" trim="both" />
 </uni-forms-item>
-<uni-forms-item name="comment" label="备注" required>
-  <uni-easyinput placeholder="手动修改积分需说明积分变动的缘由" v-model="formData.comment" trim="both" />
+<uni-forms-item name="city" label="所在城市">
+  <uni-easyinput placeholder="所在城市" v-model="formData.city" />
 </uni-forms-item>
 
       <view class="uni-button-group">
@@ -29,11 +29,11 @@
 </template>
 
 <script>
-  import { validator } from '../../js_sdk/validator/uni-id-scores.js';
+  import { validator } from '../../js_sdk/validator/uni-id-shop.js';
 
   const db = uniCloud.database();
   const dbCmd = db.command;
-  const dbCollectionName = 'uni-id-scores';
+  const dbCollectionName = 'uni-id-shop';
 
   function getValidator(fields) {
     let reuslt = {}
@@ -49,15 +49,18 @@
     data() {
       return {
         formData: {
-  "member_id": "",
-  "nickname": "",
-  "mobile": "",
-  "score": null,
-  "comment": ""
+  "shop_id": "",
+  "name": "",
+  "type": "",
+  "address": "",
+  "city": "",
+  "geohash": null,
+  "latitude": null,
+  "longitude": null
 },
         formOptions: {},
         rules: {
-          ...getValidator(["member_id","nickname","mobile","score","comment"])
+          ...getValidator(["shop_id","name","type","address","city","geohash","latitude","longitude"])
         }
       }
     },
@@ -110,7 +113,7 @@
         uni.showLoading({
           mask: true
         })
-        db.collection(dbCollectionName).doc(id).field('member_id,nickname,mobile,score,comment').get().then((res) => {
+        db.collection(dbCollectionName).doc(id).field('shop_id,name,type,address,city,geohash,latitude,longitude').get().then((res) => {
           const data = res.result.data[0]
           if (data) {
             this.formData = data

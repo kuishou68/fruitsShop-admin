@@ -14,16 +14,16 @@
       </view>
     </view>
     <view class="uni-container">
-      <unicloud-db ref="udb" collection="uni-id-address,opendb-city-china" field="user_id,name,alias,mobile,area_code{name},address,zip_code,email,is_default" :where="where" page-data="replace"
+      <unicloud-db ref="udb" collection="uni-id-memberInfo" field="member_id,nickname,password,gender,status,mobile,mobile_confirmed,email,email_confirmed,avatar,wx_unionid,wx_openid,ali_openid,realname_auth,last_login_date,last_login_ip,token,inviter_uid,my_invite_code,register_ip,register_date" :where="where" page-data="replace"
         :orderby="orderby" :getcount="true" :page-size="options.pageSize" :page-current="options.pageCurrent"
         v-slot:default="{data,pagination,loading,error,options}" :options="options">
         <uni-table :loading="loading" :emptyText="error.message || '没有更多数据'" border stripe type="selection" @selection-change="selectionChange">
           <uni-tr>
-              <uni-th align="center">会员ID</uni-th>  <uni-th align="center">收货人</uni-th>  <uni-th align="center">地址别名</uni-th>  <uni-th align="center">手机号</uni-th>  <uni-th align="center">省市区</uni-th>  <uni-th align="center">详细住址</uni-th>  <uni-th align="center">邮编</uni-th>  <uni-th align="center">邮箱</uni-th>  <uni-th align="center">默认地址</uni-th>  
+              <uni-th align="center">会员ID</uni-th>  <uni-th align="center">昵称</uni-th>  <uni-th align="center">密码</uni-th>  <uni-th align="center">性别</uni-th>  <uni-th align="center">会员状态</uni-th>  <uni-th align="center">手机号码</uni-th>  <uni-th align="center">手机号验证状态</uni-th>  <uni-th align="center">邮箱</uni-th>  <uni-th align="center">邮箱验证状态</uni-th>  <uni-th align="center">头像地址</uni-th>  <uni-th align="center">微信unionid</uni-th>  <uni-th align="center">微信各个平台openid</uni-th>  <uni-th align="center">支付宝平台openid</uni-th>  <uni-th align="center">实名认证信息</uni-th>  <uni-th align="center">最后登录时间</uni-th>  <uni-th align="center">最后登录时</uni-th>  <uni-th align="center">会员token</uni-th>  <uni-th align="center">会员上级邀请者码</uni-th>  <uni-th align="center">会员自身邀请码</uni-th>  <uni-th align="center">注册时 IP 地址</uni-th>  <uni-th align="center">注册时间</uni-th>  
             <uni-th width="204" align="center">操作</uni-th>
           </uni-tr>
           <uni-tr v-for="(item,index) in data" :key="index">
-               <uni-td align="center"> {{item.user_id}} </uni-td>    <uni-td align="center"> {{item.name}} </uni-td>    <uni-td align="center"> {{item.alias}} </uni-td>    <uni-td align="center"> {{item.mobile}} </uni-td>    <uni-td align="center"> {{item.area_code[0] && item.area_code[0].name}} </uni-td>    <uni-td align="center"> {{item.address}} </uni-td>    <uni-td align="center"> {{item.zip_code}} </uni-td>    <uni-td align="center"> <uni-link :href="'mailto:'+item.email" :text="item.email"></uni-link> </uni-td>    <uni-td align="center"> {{item.is_default == true ? '✅' : '❌'}} </uni-td>   
+               <uni-td align="center"> {{item.member_id}} </uni-td>    <uni-td align="center"> {{item.nickname}} </uni-td>    <uni-td align="center"> {{item.password}} </uni-td>    <uni-td align="center"> {{options.gender_valuetotext[item.gender]}} </uni-td>    <uni-td align="center"> {{options.status_valuetotext[item.status]}} </uni-td>    <uni-td align="center"> {{item.mobile}} </uni-td>    <uni-td align="center"> {{options.mobile_confirmed_valuetotext[item.mobile_confirmed]}} </uni-td>    <uni-td align="center"> <uni-link :href="'mailto:'+item.email" :text="item.email"></uni-link> </uni-td>    <uni-td align="center"> {{options.email_confirmed_valuetotext[item.email_confirmed]}} </uni-td>    <uni-td align="center"> {{item.avatar}} </uni-td>    <uni-td align="center"> {{item.wx_unionid}} </uni-td>    <uni-td align="center"> {{item.wx_openid}} </uni-td>    <uni-td align="center"> {{item.ali_openid}} </uni-td>    <uni-td align="center"> {{item.realname_auth}} </uni-td>    <uni-td align="center">     <uni-dateformat :date="item.last_login_date" :threshold="[0, 0]" /> </uni-td>    <uni-td align="center"> {{item.last_login_ip}} </uni-td>    <uni-td align="center"> {{item.token}} </uni-td>    <uni-td align="center"> {{item.inviter_uid}} </uni-td>    <uni-td align="center"> {{item.my_invite_code}} </uni-td>    <uni-td align="center"> {{item.register_ip}} </uni-td>    <uni-td align="center">     <uni-dateformat :date="item.register_date" :threshold="[0, 0]" /> </uni-td>   
             <uni-td align="center">
               <view class="uni-group">
                 <button @click="navigateTo('./edit?id='+item._id, false)" class="uni-button" size="mini" type="primary">修改</button>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-  import { enumConverter } from '../../js_sdk/validator/uni-id-address.js';
+  import { enumConverter } from '../../js_sdk/validator/uni-id-memberInfo.js';
 
   const db = uniCloud.database()
   // 表查询配置

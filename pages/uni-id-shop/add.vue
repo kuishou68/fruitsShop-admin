@@ -2,26 +2,20 @@
 <template>
   <view class="uni-container">
     <uni-forms ref="form" :value="formData" validateTrigger="bind">
-      <uni-forms-item name="name" label="类别名称" required>
-  <uni-easyinput placeholder="类别名称" v-model="formData.name" trim="both" />
+      <uni-forms-item name="shop_id" label="门店ID">
+  <uni-easyinput placeholder="门店id，参考uni-id-shop表" v-model="formData.shop_id" />
 </uni-forms-item>
-<uni-forms-item name="sort" label="排序">
-  <uni-easyinput placeholder="类别排序，越大越靠后" type="number" v-model="formData.sort" />
+<uni-forms-item name="name" label="门店名称">
+  <uni-easyinput placeholder="门店名称" v-model="formData.name" />
 </uni-forms-item>
-<uni-forms-item name="description" label="类别描述">
-  <uni-easyinput placeholder="类别描述" v-model="formData.description" trim="both" />
+<uni-forms-item name="type" label="门店类型">
+  <uni-easyinput placeholder="门店类型 1:自营 2:加盟" v-model="formData.type" trim="both" />
 </uni-forms-item>
-<uni-forms-item name="icon" label="图标地址">
-  <uni-easyinput placeholder="类别图标/图片地址" v-model="formData.icon" trim="both" />
+<uni-forms-item name="address" label="门店位置">
+  <uni-easyinput placeholder="门店位置" v-model="formData.address" trim="both" />
 </uni-forms-item>
-<uni-forms-item name="is_hot_show" label="加入热门显示">
-  <switch @change="binddata('is_hot_show', $event.detail.value)" :checked="formData.is_hot_show" />
-</uni-forms-item>
-<uni-forms-item name="is_index_show" label="首页显示">
-  <switch @change="binddata('is_index_show', $event.detail.value)" :checked="formData.is_index_show" />
-</uni-forms-item>
-<uni-forms-item name="create_date" label="创建时间">
-  <uni-datetime-picker return-type="timestamp" :value="formData.create_date" />
+<uni-forms-item name="city" label="所在城市">
+  <uni-easyinput placeholder="所在城市" v-model="formData.city" />
 </uni-forms-item>
 
       <view class="uni-button-group">
@@ -35,11 +29,11 @@
 </template>
 
 <script>
-  import { validator } from '../../js_sdk/validator/opendb-mall-categories.js';
+  import { validator } from '../../js_sdk/validator/uni-id-shop.js';
 
   const db = uniCloud.database();
   const dbCmd = db.command;
-  const dbCollectionName = 'opendb-mall-categories';
+  const dbCollectionName = 'uni-id-shop';
 
   function getValidator(fields) {
     let reuslt = {}
@@ -55,17 +49,18 @@
     data() {
       return {
         formData: {
+  "shop_id": "",
   "name": "",
-  "sort": null,
-  "description": "",
-  "icon": "",
-  "is_hot_show": null,
-  "is_index_show": null,
-  "create_date": null
+  "type": "",
+  "address": "",
+  "city": "",
+  "geohash": null,
+  "latitude": null,
+  "longitude": null
 },
         formOptions: {},
         rules: {
-          ...getValidator(["name","sort","description","icon","is_hot_show","is_index_show","create_date"])
+          ...getValidator(["shop_id","name","type","address","city","geohash","latitude","longitude"])
         }
       }
     },

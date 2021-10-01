@@ -4,13 +4,6 @@
 
 
 const validator = {
-  "parent_id": {
-    "rules": [
-      {
-        "format": "string"
-      }
-    ]
-  },
   "name": {
     "rules": [
       {
@@ -21,17 +14,6 @@ const validator = {
       }
     ],
     "label": "类别名称"
-  },
-  "icon": {
-    "rules": [
-      {
-        "format": "string"
-      },
-      {
-        "pattern": "^(http://|https://|/|./|@/)\\S"
-      }
-    ],
-    "label": "图标地址"
   },
   "sort": {
     "rules": [
@@ -48,6 +30,17 @@ const validator = {
       }
     ],
     "label": "类别描述"
+  },
+  "icon": {
+    "rules": [
+      {
+        "format": "string"
+      },
+      {
+        "pattern": "^(http://|https://|/|./|@/)\\S"
+      }
+    ],
+    "label": "图标地址"
   },
   "is_hot_show": {
     "rules": [
@@ -73,7 +66,8 @@ const validator = {
     ],
     "defaultValue": {
       "$env": "now"
-    }
+    },
+    "label": "创建时间"
   }
 }
 

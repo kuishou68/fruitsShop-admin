@@ -4,60 +4,57 @@
 
 
 const validator = {
-  "member_id": {
-    "rules": [
-      {
-        "required": true
-      },
-      {
-        "format": "string"
-      }
-    ],
-    "label": "会员ID"
-  },
-  "nickname": {
+  "shop_id": {
     "rules": [
       {
         "format": "string"
       }
     ],
-    "label": "昵称"
+    "label": "门店ID"
   },
-  "mobile": {
+  "name": {
     "rules": [
-      {
-        "required": true
-      },
-      {
-        "format": "string"
-      },
-      {
-        "pattern": "^\\+?[0-9-]{3,20}$"
-      }
-    ],
-    "label": "手机号码"
-  },
-  "score": {
-    "rules": [
-      {
-        "required": true
-      },
-      {
-        "format": "int"
-      }
-    ],
-    "label": "积分余额"
-  },
-  "comment": {
-    "rules": [
-      {
-        "required": true
-      },
       {
         "format": "string"
       }
     ],
-    "label": "备注"
+    "label": "门店名称"
+  },
+  "type": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "门店类型"
+  },
+  "address": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "门店位置"
+  },
+  "city": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "所在城市"
+  },
+  "geohash": {
+    "rules": [],
+    "label": "经纬度"
+  },
+  "latitude": {
+    "rules": [],
+    "label": "纬度"
+  },
+  "longitude": {
+    "rules": [],
+    "label": "经度"
   }
 }
 

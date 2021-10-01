@@ -42,19 +42,19 @@
         {
             "path": "pages/opendb-mall-categories/add",
             "style": {
-                "navigationBarTitleText": "新增商品分类"
+                "navigationBarTitleText": "新增"
             }
         },
         {
             "path": "pages/opendb-mall-categories/edit",
             "style": {
-                "navigationBarTitleText": "编辑商品分类"
+                "navigationBarTitleText": "编辑"
             }
         },
         {
             "path": "pages/opendb-mall-categories/list",
             "style": {
-                "navigationBarTitleText": "商品分类列表"
+                "navigationBarTitleText": "列表"
             }
         },
         {
@@ -133,6 +133,48 @@
             "path": "pages/uni-id-address/list",
             "style": {
                 "navigationBarTitleText": "列表"
+            }
+        },
+        {
+            "path": "pages/uni-id-shop/add",
+            "style": {
+                "navigationBarTitleText": "新增"
+            }
+        },
+        {
+            "path": "pages/uni-id-shop/edit",
+            "style": {
+                "navigationBarTitleText": "编辑"
+            }
+        },
+        {
+            "path": "pages/uni-id-shop/list",
+            "style": {
+                "navigationBarTitleText": "列表"
+            }
+        },
+        {
+            "path": "pages/uni-id-memberInfo/add",
+            "style": {
+                "navigationBarTitleText": "新增"
+            }
+        },
+        {
+            "path": "pages/uni-id-memberInfo/edit",
+            "style": {
+                "navigationBarTitleText": "编辑"
+            }
+        },
+        {
+            "path": "pages/uni-id-memberInfo/list",
+            "style": {
+                "navigationBarTitleText": "列表"
+            }
+        },
+        {
+            "path": "pages/uni-id-base-order/detail",
+            "style": {
+                "navigationBarTitleText": "详情"
             }
         }
     ],
