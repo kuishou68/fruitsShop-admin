@@ -5,17 +5,17 @@
       <uni-forms-item name="shop_id" label="门店ID">
   <uni-easyinput placeholder="门店id，参考uni-id-shop表" v-model="formData.shop_id" />
 </uni-forms-item>
-<uni-forms-item name="name" label="门店名称">
-  <uni-easyinput placeholder="门店名称" v-model="formData.name" />
+<uni-forms-item name="shop_name" label="门店名称">
+  <uni-easyinput placeholder="门店名称" v-model="formData.shop_name" />
 </uni-forms-item>
-<uni-forms-item name="type" label="门店类型">
-  <uni-easyinput placeholder="门店类型 1:自营 2:加盟" v-model="formData.type" trim="both" />
+<uni-forms-item name="shop_type" label="门店类型">
+  <uni-easyinput placeholder="门店类型 1:自营 2:加盟" v-model="formData.shop_type" trim="both" />
 </uni-forms-item>
-<uni-forms-item name="address" label="门店位置">
-  <uni-easyinput placeholder="门店位置" v-model="formData.address" trim="both" />
+<uni-forms-item name="shop_address" label="门店位置">
+  <uni-easyinput placeholder="门店位置" v-model="formData.shop_address" trim="both" />
 </uni-forms-item>
-<uni-forms-item name="city" label="所在城市">
-  <uni-easyinput placeholder="所在城市" v-model="formData.city" />
+<uni-forms-item name="shop_city" label="所在城市">
+  <uni-easyinput placeholder="所在城市" v-model="formData.shop_city" />
 </uni-forms-item>
 
       <view class="uni-button-group">
@@ -50,17 +50,17 @@
       return {
         formData: {
   "shop_id": "",
-  "name": "",
-  "type": "",
-  "address": "",
-  "city": "",
+  "shop_name": "",
+  "shop_type": "",
+  "shop_address": "",
+  "shop_city": "",
   "geohash": null,
   "latitude": null,
   "longitude": null
 },
         formOptions: {},
         rules: {
-          ...getValidator(["shop_id","name","type","address","city","geohash","latitude","longitude"])
+          ...getValidator(["shop_id","shop_name","shop_type","shop_address","shop_city","geohash","latitude","longitude"])
         }
       }
     },
@@ -113,7 +113,7 @@
         uni.showLoading({
           mask: true
         })
-        db.collection(dbCollectionName).doc(id).field('shop_id,name,type,address,city,geohash,latitude,longitude').get().then((res) => {
+        db.collection(dbCollectionName).doc(id).field('shop_id,shop_name,shop_type,shop_address,shop_city,geohash,latitude,longitude').get().then((res) => {
           const data = res.result.data[0]
           if (data) {
             this.formData = data

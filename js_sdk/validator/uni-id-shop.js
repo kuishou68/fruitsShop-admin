@@ -12,7 +12,7 @@ const validator = {
     ],
     "label": "门店ID"
   },
-  "name": {
+  "shop_name": {
     "rules": [
       {
         "format": "string"
@@ -20,7 +20,7 @@ const validator = {
     ],
     "label": "门店名称"
   },
-  "type": {
+  "shop_type": {
     "rules": [
       {
         "format": "string"
@@ -28,7 +28,7 @@ const validator = {
     ],
     "label": "门店类型"
   },
-  "address": {
+  "shop_address": {
     "rules": [
       {
         "format": "string"
@@ -36,7 +36,7 @@ const validator = {
     ],
     "label": "门店位置"
   },
-  "city": {
+  "shop_city": {
     "rules": [
       {
         "format": "string"

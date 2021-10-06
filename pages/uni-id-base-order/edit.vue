@@ -11,20 +11,59 @@
 <uni-forms-item name="mobile" label="下单会员手机号">
   <uni-easyinput placeholder="参考会员手机号" v-model="formData.mobile" />
 </uni-forms-item>
+<uni-forms-item name="name" label="商品名称1">
+  <uni-easyinput placeholder="名称1" v-model="formData.name" trim="both" />
+</uni-forms-item>
+<uni-forms-item name="name2" label="商品名称2">
+  <uni-easyinput placeholder="名称2" v-model="formData.name2" trim="both" />
+</uni-forms-item>
+<uni-forms-item name="name3" label="商品名称3">
+  <uni-easyinput placeholder="名称3" v-model="formData.name3" trim="both" />
+</uni-forms-item>
+<uni-forms-item name="name4" label="商品名称4">
+  <uni-easyinput placeholder="名称4" v-model="formData.name4" trim="both" />
+</uni-forms-item>
+<uni-forms-item name="count" label="商品数量">
+  <uni-easyinput type="number" v-model="formData.count" />
+</uni-forms-item>
+<uni-forms-item name="goods_thumb" label="缩略图地址1">
+  <uni-easyinput placeholder="商品缩略图1，对应唯一的商品名称" v-model="formData.goods_thumb" trim="both" />
+</uni-forms-item>
+<uni-forms-item name="goods_thumb2" label="缩略图地址2">
+  <uni-easyinput placeholder="商品缩略图2，对应唯一的商品名称" v-model="formData.goods_thumb2" trim="both" />
+</uni-forms-item>
+<uni-forms-item name="goods_thumb3" label="缩略图地址3">
+  <uni-easyinput placeholder="商品缩略图3，对应唯一的商品名称" v-model="formData.goods_thumb3" trim="both" />
+</uni-forms-item>
+<uni-forms-item name="goods_thumb4" label="缩略图地址4">
+  <uni-easyinput placeholder="商品缩略图4，对应唯一的商品名称" v-model="formData.goods_thumb4" trim="both" />
+</uni-forms-item>
 <uni-forms-item name="type" label="订单类型">
   <uni-easyinput placeholder="小程序订单，拼团订单，预售订单、门店订单" v-model="formData.type" />
 </uni-forms-item>
-<uni-forms-item name="pay_type" label="支付渠道">
-  <uni-easyinput placeholder="微信 | 支付宝" v-model="formData.pay_type" />
+<uni-forms-item name="shop_name" label="服务门店">
+  <uni-easyinput placeholder="在那个门店下的单" v-model="formData.shop_name" />
+</uni-forms-item>
+<uni-forms-item name="distribution_Mode" label="配送方式">
+  <uni-easyinput placeholder="门店自提 | 送货上门(满39元3公里免运费)" v-model="formData.distribution_Mode" />
+</uni-forms-item>
+<uni-forms-item name="pay_type" label="支付方式">
+  <uni-easyinput placeholder="微信零钱 | 会员卡 | 支付宝" v-model="formData.pay_type" />
+</uni-forms-item>
+<uni-forms-item name="commodity_fee" label="商品总额">
+  <uni-easyinput placeholder="商品总额" type="number" v-model="formData.commodity_fee" />
+</uni-forms-item>
+<uni-forms-item name="coupon_fee" label="优惠金额">
+  <uni-easyinput placeholder="优惠金额" type="number" v-model="formData.coupon_fee" />
+</uni-forms-item>
+<uni-forms-item name="refund_fee" label="退款金额">
+  <uni-easyinput placeholder="退款金额" type="number" v-model="formData.refund_fee" />
 </uni-forms-item>
 <uni-forms-item name="total_fee" label="订单总金额">
   <uni-easyinput placeholder="单位：分" type="number" v-model="formData.total_fee" />
 </uni-forms-item>
-<uni-forms-item name="platform" label="下单平台类型">
-  <uni-easyinput placeholder="如 微信 | 支付宝 | APP " v-model="formData.platform" />
-</uni-forms-item>
 <uni-forms-item name="status" label="订单状态">
-  <uni-easyinput placeholder="1：待付款，2：已付款，3：退款审核中，4：退款中，5：已退款，-1已取消付款/退款，-2：退款拒绝，-3：退款失败" type="number" v-model="formData.status" />
+  <uni-easyinput placeholder="1：待付款，2：待提货，3：已完成，4：退款中，5：已退款，-1已取消付款/退款，-2：退款拒绝，-3：退款失败" type="number" v-model="formData.status" />
 </uni-forms-item>
 <uni-forms-item name="create_time" label="订单创建时间">
   <uni-datetime-picker return-type="timestamp" :value="formData.create_time" />
@@ -91,10 +130,24 @@
   "order_id": "",
   "order_number": "",
   "mobile": "",
+  "name": "",
+  "name2": "",
+  "name3": "",
+  "name4": "",
+  "count": null,
+  "goods_thumb": "",
+  "goods_thumb2": "",
+  "goods_thumb3": "",
+  "goods_thumb4": "",
   "type": "",
+  "shop_name": "",
+  "distribution_Mode": "",
   "pay_type": "",
+  "commodity_fee": null,
+  "coupon_fee": null,
+  "refund_fee": null,
   "total_fee": null,
-  "platform": "",
+  "comment": null,
   "status": null,
   "create_time": null,
   "update_time": null,
@@ -109,7 +162,7 @@
 },
         formOptions: {},
         rules: {
-          ...getValidator(["order_id","order_number","mobile","type","pay_type","total_fee","platform","status","create_time","update_time","transaction_id","info","is_refund","refund_amount","refund_count","paid_time","refund_time","refund_desc"])
+          ...getValidator(["order_id","order_number","mobile","name","name2","name3","name4","count","goods_thumb","goods_thumb2","goods_thumb3","goods_thumb4","type","shop_name","distribution_Mode","pay_type","commodity_fee","coupon_fee","refund_fee","total_fee","comment","status","create_time","update_time","transaction_id","info","is_refund","refund_amount","refund_count","paid_time","refund_time","refund_desc"])
         }
       }
     },
@@ -162,7 +215,7 @@
         uni.showLoading({
           mask: true
         })
-        db.collection(dbCollectionName).doc(id).field('order_id,order_number,mobile,type,pay_type,total_fee,platform,status,create_time,update_time,transaction_id,info,is_refund,refund_amount,refund_count,paid_time,refund_time,refund_desc').get().then((res) => {
+        db.collection(dbCollectionName).doc(id).field('order_id,order_number,mobile,name,name2,name3,name4,count,goods_thumb,goods_thumb2,goods_thumb3,goods_thumb4,type,shop_name,distribution_Mode,pay_type,commodity_fee,coupon_fee,refund_fee,total_fee,comment,status,create_time,update_time,transaction_id,info,is_refund,refund_amount,refund_count,paid_time,refund_time,refund_desc').get().then((res) => {
           const data = res.result.data[0]
           if (data) {
             this.formData = data

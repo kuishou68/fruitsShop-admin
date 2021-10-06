@@ -28,6 +28,90 @@ const validator = {
     ],
     "label": "下单会员手机号"
   },
+  "name": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "商品名称1"
+  },
+  "name2": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "商品名称2"
+  },
+  "name3": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "商品名称3"
+  },
+  "name4": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "商品名称4"
+  },
+  "count": {
+    "rules": [
+      {
+        "format": "int"
+      }
+    ],
+    "label": "商品数量"
+  },
+  "goods_thumb": {
+    "rules": [
+      {
+        "format": "string"
+      },
+      {
+        "pattern": "^(http://|https://|/|./|@/)\\S"
+      }
+    ],
+    "label": "缩略图地址1"
+  },
+  "goods_thumb2": {
+    "rules": [
+      {
+        "format": "string"
+      },
+      {
+        "pattern": "^(http://|https://|/|./|@/)\\S"
+      }
+    ],
+    "label": "缩略图地址2"
+  },
+  "goods_thumb3": {
+    "rules": [
+      {
+        "format": "string"
+      },
+      {
+        "pattern": "^(http://|https://|/|./|@/)\\S"
+      }
+    ],
+    "label": "缩略图地址3"
+  },
+  "goods_thumb4": {
+    "rules": [
+      {
+        "format": "string"
+      },
+      {
+        "pattern": "^(http://|https://|/|./|@/)\\S"
+      }
+    ],
+    "label": "缩略图地址4"
+  },
   "type": {
     "rules": [
       {
@@ -36,13 +120,53 @@ const validator = {
     ],
     "label": "订单类型"
   },
+  "shop_name": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "服务门店"
+  },
+  "distribution_Mode": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "label": "配送方式"
+  },
   "pay_type": {
     "rules": [
       {
         "format": "string"
       }
     ],
-    "label": "支付渠道"
+    "label": "支付方式"
+  },
+  "commodity_fee": {
+    "rules": [
+      {
+        "format": "double"
+      }
+    ],
+    "label": "商品总额"
+  },
+  "coupon_fee": {
+    "rules": [
+      {
+        "format": "double"
+      }
+    ],
+    "label": "优惠金额"
+  },
+  "refund_fee": {
+    "rules": [
+      {
+        "format": "double"
+      }
+    ],
+    "label": "退款金额"
   },
   "total_fee": {
     "rules": [
@@ -52,13 +176,9 @@ const validator = {
     ],
     "label": "订单总金额"
   },
-  "platform": {
-    "rules": [
-      {
-        "format": "string"
-      }
-    ],
-    "label": "下单平台类型"
+  "comment": {
+    "rules": [],
+    "label": "备注"
   },
   "status": {
     "rules": [
