@@ -17,7 +17,15 @@
 <uni-forms-item name="shop_city" label="所在城市">
   <uni-easyinput placeholder="所在城市" v-model="formData.shop_city" />
 </uni-forms-item>
-
+<uni-forms-item name="shop_geohash" label="经纬度">
+  <uni-easyinput placeholder="经纬度" v-model="formData.shop_geohash" />
+</uni-forms-item>
+<uni-forms-item name="shop_latitude" label="纬度">
+  <uni-easyinput placeholder="纬度" v-model="formData.shop_latitude" />
+</uni-forms-item>
+<uni-forms-item name="shop_longitude" label="经度">
+  <uni-easyinput placeholder="经度" v-model="formData.shop_longitude" />
+</uni-forms-item>
       <view class="uni-button-group">
         <button type="primary" class="uni-button" style="width: 100px;" @click="submit">提交</button>
         <navigator open-type="navigateBack" style="margin-left: 15px;">
@@ -54,13 +62,13 @@
   "shop_type": "",
   "shop_address": "",
   "shop_city": "",
-  "geohash": null,
-  "latitude": null,
-  "longitude": null
+  "shop_geohash": null,
+  "shop_latitude": null,
+  "shop_longitude": null
 },
         formOptions: {},
         rules: {
-          ...getValidator(["shop_id","shop_name","shop_type","shop_address","shop_city","geohash","latitude","longitude"])
+          ...getValidator(["shop_id","shop_name","shop_type","shop_address","shop_city","shop_geohash","shop_latitude","shop_longitude"])
         }
       }
     },
@@ -113,7 +121,7 @@
         uni.showLoading({
           mask: true
         })
-        db.collection(dbCollectionName).doc(id).field('shop_id,shop_name,shop_type,shop_address,shop_city,geohash,latitude,longitude').get().then((res) => {
+        db.collection(dbCollectionName).doc(id).field('shop_id,shop_name,shop_type,shop_address,shop_city,shop_geohash,shop_latitude,shop_longitude').get().then((res) => {
           const data = res.result.data[0]
           if (data) {
             this.formData = data

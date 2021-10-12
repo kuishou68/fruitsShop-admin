@@ -44,15 +44,15 @@ const validator = {
     ],
     "label": "所在城市"
   },
-  "geohash": {
+  "shop_geohash": {
     "rules": [],
     "label": "经纬度"
   },
-  "latitude": {
+  "shop_latitude": {
     "rules": [],
     "label": "纬度"
   },
-  "longitude": {
+  "shop_longitude": {
     "rules": [],
     "label": "经度"
   }

@@ -14,7 +14,7 @@
       </view>
     </view>
     <view class="uni-container">
-      <unicloud-db ref="udb" collection="uni-id-shop" field="shop_id,shop_name,shop_type,shop_address,shop_city,geohash,latitude,longitude" :where="where" page-data="replace"
+      <unicloud-db ref="udb" collection="uni-id-shop" field="shop_id,shop_name,shop_type,shop_address,shop_city,shop_geohash,shop_latitude,shop_longitude" :where="where" page-data="replace"
         :orderby="orderby" :getcount="true" :page-size="options.pageSize" :page-current="options.pageCurrent"
         v-slot:default="{data,pagination,loading,error,options}" :options="options">
         <uni-table :loading="loading" :emptyText="error.message || '没有更多数据'" border stripe type="selection" @selection-change="selectionChange">
@@ -23,7 +23,7 @@
             <uni-th width="204" align="center">操作</uni-th>
           </uni-tr>
           <uni-tr v-for="(item,index) in data" :key="index">
-               <uni-td align="center"> {{item.shop_id}} </uni-td>    <uni-td align="center"> {{item.shop_name}} </uni-td>    <uni-td align="center"> {{item.shop_type}} </uni-td>    <uni-td align="center"> {{item.shop_address}} </uni-td>    <uni-td align="center"> {{item.shop_city}} </uni-td>    <uni-td align="center"> {{item.geohash}} </uni-td>    <uni-td align="center"> {{item.latitude}} </uni-td>    <uni-td align="center"> {{item.longitude}} </uni-td>   
+               <uni-td align="center"> {{item.shop_id}} </uni-td>    <uni-td align="center"> {{item.shop_name}} </uni-td>    <uni-td align="center"> {{item.shop_type}} </uni-td>    <uni-td align="center"> {{item.shop_address}} </uni-td>    <uni-td align="center"> {{item.shop_city}} </uni-td>    <uni-td align="center"> {{item.shop_geohash}} </uni-td>    <uni-td align="center"> {{item.shop_latitude}} </uni-td>    <uni-td align="center"> {{item.shop_longitude}} </uni-td>   
             <uni-td align="center">
               <view class="uni-group">
                 <button @click="navigateTo('./edit?id='+item._id, false)" class="uni-button" size="mini" type="primary">修改</button>
