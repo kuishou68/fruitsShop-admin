@@ -7,9 +7,6 @@ const validator = {
   "member_id": {
     "rules": [
       {
-        "required": true
-      },
-      {
         "format": "string"
       }
     ],
@@ -50,9 +47,6 @@ const validator = {
   },
   "comment": {
     "rules": [
-      {
-        "required": true
-      },
       {
         "format": "string"
       }

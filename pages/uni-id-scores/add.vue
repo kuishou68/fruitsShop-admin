@@ -2,7 +2,7 @@
 <template>
   <view class="uni-container">
     <uni-forms ref="form" :value="formData" validateTrigger="bind">
-      <uni-forms-item name="member_id" label="会员ID" required>
+      <uni-forms-item name="member_id" label="会员ID">
   <uni-easyinput placeholder="会员id，参考会员信息表" v-model="formData.member_id" />
 </uni-forms-item>
 <uni-forms-item name="nickname" label="昵称">
@@ -14,7 +14,7 @@
 <uni-forms-item name="score" label="积分余额" required>
   <uni-easyinput placeholder="积分余额" type="number" v-model="formData.score" />
 </uni-forms-item>
-<uni-forms-item name="comment" label="备注" required>
+<uni-forms-item name="comment" label="备注">
   <uni-easyinput placeholder="手动修改积分需说明积分变动的缘由" v-model="formData.comment" trim="both" />
 </uni-forms-item>
 
